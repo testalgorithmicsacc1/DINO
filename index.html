@@ -142,7 +142,7 @@
           const overlapX = playerRect.right > enemyRect.left && playerRect.left < enemyRect.right;
           const overlapY = playerRect.bottom > enemyRect.top && playerRect.top < enemyRect.bottom;
           if (overlapX && overlapY && parseInt(enemy.dataset.lane) === currentLane) {
-            alert('Game Over!');
+            
             window.location.reload();
           }
         });
