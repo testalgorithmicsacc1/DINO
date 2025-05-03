@@ -142,10 +142,7 @@
           const overlapX = playerRect.right > enemyRect.left && playerRect.left < enemyRect.right;
           const overlapY = playerRect.bottom > enemyRect.top && playerRect.top < enemyRect.bottom;
           if (overlapX && overlapY && parseInt(enemy.dataset.lane) === currentLane) {
-            function gameOver() {
-              <div> <img src="image.png"></div>
-            }
-            window.location.reload();
+            gameOver()
           }
         });
       }, 100);
@@ -159,6 +156,12 @@
         moveToLane(currentLane + 1);
       }
     });
+    function gameOver(){
+    img = "death-screen"
+    audio = "death-sound"
+    }
   </script>
+  <img src class="death-screen" img="image.png">
+  <audio src class="death-sound" sound="https://www.myinstants.com/en/instant/dark-souls-death-67150/"></audio>
 </body>
 </html>
