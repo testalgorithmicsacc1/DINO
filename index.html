@@ -63,11 +63,21 @@
       opacity: 0;
       z-index: 1;
     }
+    .restart{
+      position: absolute;
+      top: 70%;
+      left: 28%;
+      width: 40vw;
+      height: 5vh;
+      opacity: 0;
+      z-index: 3;
+    }
   </style>
 </head>
 <body>
   <img class="death-screen" src="source/_.png">
   <img class="game-cover" src="source/anti-point grind.jpg">
+  <img class="restart" src="source/button.png">
   <audio class="death-sound" src="source/dark-souls-you-died-sound-effect_hm5sYFG.mp3" ></audio>
   <div id="game">
     <div class="lane"></div>
@@ -161,7 +171,6 @@
           if (overlapX && overlapY && parseInt(enemy.dataset.lane) === currentLane) {
             gameOver();
             gameStarted = false;
-            setTimeout(reload, 2000);
           }
         });
       }, 100);
@@ -176,15 +185,21 @@
         moveToLane(currentLane + 1);
       }
     });
+    
+    document.querySelector(".restart").addEventListener("click", reload)
     function reload(){
       window.location.reload();
+      
     }
     function gameOver(){
       let img = document.querySelector(".game-cover");
       let img2 = document.querySelector(".death-screen")
+      let img3 = document.querySelector(".restart")
       img.style.opacity = 1;
       img2.style.opacity = 1;
-      let audio = document.querySelector("death-sound")        
+      img3.style.opacity = 1;
+      let audio = document.querySelector("death-sound");
+        audioElement.play()       
     }
   </script>
 
